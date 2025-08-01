@@ -133,3 +133,9 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+p.small {
+    margin-top: 2em;
+    font-size: 0.8rem;
+    font-weight: 200;
+}
