@@ -4,7 +4,7 @@ html {
     font-family: "jaf-bernina-sans", sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: #282828;
+    color: #191919;
 }
 
 .wrapper {
@@ -16,6 +16,10 @@ section {
     margin-bottom: 2rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid #eee;
+}
+
+section:last-child {
+    border-bottom: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -135,7 +139,7 @@ a:hover {
 }
 
 p.small {
-    margin-top: 2em;
-    font-size: 0.8rem;
+    margin: 2em 0;
+    font-size: 0.9rem;
     font-weight: 200;
 }
