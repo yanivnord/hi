@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Designing Life-Saving Patient Safety Technology - Yaniv Nord</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/icg4uxr.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevent scrollbars on the main page */
+            padding: 1em;
+        }
+        .case-study-header {
+            flex-shrink: 0;
+        }
+        .iframe-wrapper {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2em;
+            box-sizing: border-box;
+        }
+        .iframe-container {
+            position: relative;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        .iframe-container iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header class="case-study-header">
+        <a href="index.html">← Back to main page</a>
+    </header>
+    <div class="iframe-wrapper">
+        <main class="iframe-container">
+            <iframe src="https://pitch.com/v/virtual-sitter-case-study-72a4w4" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframeContainer = document.querySelector('.iframe-container');
+            const iframeWrapper = document.querySelector('.iframe-wrapper');
+            
+            const FOOTER_HEIGHT = 64;
+            const ASPECT_RATIO_W = 16;
+            const ASPECT_RATIO_H = 9;
+            const PADDING = 16;
+
+            function resizeIframe() {
+                if (!iframeWrapper || !iframeContainer) return;
+
+                // The available space is the wrapper's dimension minus its padding on both sides
+                const availableWidth = iframeWrapper.clientWidth - (PADDING * 2);
+                const availableHeight = iframeWrapper.clientHeight - (PADDING * 2);
+
+                // Calculate the width the iframe's 16:9 section would need to fill the available height
+                const widthFromHeight = (availableHeight - FOOTER_HEIGHT) * (ASPECT_RATIO_W / ASPECT_RATIO_H);
+
+                // The final width is the smaller of the two: the available width, or the width derived from the height
+                let optimalWidth = Math.min(availableWidth, widthFromHeight);
+
+                if (optimalWidth < 0) optimalWidth = 0;
+
+                // Calculate the final height based on the chosen width and the fixed footer height
+                const optimalHeight = (optimalWidth * (ASPECT_RATIO_H / ASPECT_RATIO_W)) + FOOTER_HEIGHT;
+
+                iframeContainer.style.width = `${optimalWidth}px`;
+                iframeContainer.style.height = `${optimalHeight}px`;
+            }
+
+            // Resize on initial load and on window resize
+            resizeIframe();
+            window.addEventListener('resize', resizeIframe);
+        });
+    </script>
+</body>
+</html> 
