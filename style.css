@@ -24,7 +24,7 @@ html {
 section {
     margin-bottom: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
 }
 
 section:last-child {
@@ -44,8 +44,16 @@ p {
     font-style: normal;
 }
 
-p.strong {
+strong {
     font-weight: 700;
+}
+
+.essay::first-letter {
+    -webkit-initial-letter: 3;
+    initial-letter: 2;
+    font-family: monospace;
+    font-weight: lighter;
+    margin-left: -10px
 }
 
 /* This utility class can be used to make any text smaller and lighter. */
@@ -89,19 +97,17 @@ a:hover {
 .hero-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
     max-width: 680px;
     margin: 0 auto;
     min-height: 300px;
+    justify-content: flex-end;
     /* color: #fff; */
 }
 
 mark {
     color: #191919;
-    background-color: #EEEE00;
-    /* background-color: #191919; */
-    /* color: #fff; */
+    background-color: RGBA(255, 220, 75, 1.0);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, .8);
 }
 
 .hero-content {
@@ -109,6 +115,7 @@ mark {
     margin-left: -5px;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
 }
 
 @media (max-width: 680px) {
@@ -118,22 +125,22 @@ mark {
 }
 
 .hero-content > h1 {
-    padding: 0;
+    padding: 0 0 0.15em 0;
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     letter-spacing: -0.00em;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.1;
     font-family: "jaf-bernino-sans-condensed", sans-serif;
 }
 
 
-.hero-content > p {
+.hero-content > h2 {
     padding: 0;
     margin: 0;
     font-size: 1.15rem;
-    letter-spacing: -0.01em;
-    font-weight: 200;
+    letter-spacing: -0.02em;
+    font-weight: 600;
     padding: 0;
     line-height: 1;
 }
@@ -146,7 +153,7 @@ mark {
     align-items: flex-start;
     justify-content: flex-start;
     gap: .75rem;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 }
 
 .job:last-child {
